@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from "@angular/router";
 import {ChampionshipComponent} from "./modules/championship/championship.component";
+import { BrowserModule } from '@angular/platform-browser';
 
 const routes: Routes = [
   {
@@ -11,7 +12,7 @@ const routes: Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [CommonModule,
+  imports: [BrowserModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]

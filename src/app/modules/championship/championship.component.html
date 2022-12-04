@@ -1,13 +1,25 @@
 <div class="row">
   <h2 class="text-center my-3">RaceChronos Championship</h2>
-  <div class="col-6">
-    <h5 class="text-center">Paramètres du championnat</h5>
+  <div class="col-5 ms-2">
+    <h5 class="text-center">Paramètres du championnat</h5><hr>
+    <div>Ajouter un participant :</div> <input type="text" [(ngModel)]="participantAjoute"><button (click)="addParticipant()" class="ms-2">Ajouter</button>
+    <div>
+      <p class="mt-2">Participants:</p>
+      <p *ngFor="let pilote of pilotes">- {{pilote}}</p>
+    </div>
+
   </div>
 
-  <div class="col-6">
+  <div class="col-5">
     <h5 class="text-center">Résultats</h5>
-    <div>
-        <h6 *ngFor="let pilote of pilotes">{{pilote}}</h6>
+    <div><hr>
+      <div *ngFor="let nom of pilotes; let i = index">
+        {{nom}} :
+        <div *ngFor="let chronos of tempsSpeciales[i]">
+          <p>Spéciale {{i}}: {{chronos.minutes}}.{{chronos.secondes}}.{{chronos.millisecondes}}</p>
+        </div>
+        <p>Temps total: {{tempsTotalParticipant(tempsSpeciales[i])}}</p>
+      </div>
     </div>
   </div>
 
