@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup} from "@angular/forms";
 
 @Component({
   selector: 'app-championship',
@@ -6,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./championship.component.css']
 })
 export class ChampionshipComponent implements OnInit {
+
+  pilotes: string[] = ["Norbert", "Pierre", "Adrien"]
+
+  championshipForm!: FormGroup
 
   constructor() { }
 
