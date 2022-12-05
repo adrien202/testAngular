@@ -15,8 +15,8 @@
     <div><hr>
       <div *ngFor="let nom of pilotes; let i = index">
         {{nom}} :
-        <div *ngFor="let chronos of tempsSpeciales[i]">
-          <p>Spéciale {{i}}: {{chronos.minutes}}.{{chronos.secondes}}.{{chronos.millisecondes}}</p>
+        <div *ngFor="let chronos of tempsSpeciales[i]; let specialNumber = index">
+          <p>Spéciale {{specialNumber + 1}}: {{chronos.minutes}}.{{chronos.secondes}}.{{chronos.millisecondes}}</p>
         </div>
         <p>Temps total: {{tempsTotalParticipant(tempsSpeciales[i])}}</p>
       </div>

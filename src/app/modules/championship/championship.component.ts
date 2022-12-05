@@ -44,10 +44,13 @@ export class ChampionshipComponent implements OnInit {
       tempsTotalmillisec += temps.millisecondes
     })
 
-    let min = tempsTotalmillisec % 60000
+    let min = Math.trunc(tempsTotalmillisec / 60000)
     tempsTotalmillisec = tempsTotalmillisec - min*60000
-    let sec = tempsTotalmillisec %1000
+    console.log(min)
+    let sec = Math.trunc(tempsTotalmillisec / 1000)
     tempsTotalmillisec = tempsTotalmillisec - sec*1000
+
+
 
     return min + '.' + sec + '.' + tempsTotalmillisec
   }
