@@ -3,6 +3,7 @@ import {FormGroup} from "@angular/forms";
 import {newArray} from "@angular/compiler/src/util";
 import {Chronos} from "../../interfaces/Chronos";
 
+
 @Component({
   selector: 'app-championship',
   templateUrl: './championship.component.html',
@@ -10,13 +11,13 @@ import {Chronos} from "../../interfaces/Chronos";
 })
 export class ChampionshipComponent implements OnInit {
 
-  pilotes: string[] = ["Adrien", "Norbert"]
+  pilotes: string[] = []
 
   championshipForm!: FormGroup
   participantAjoute: string = '';
   tempsSpeciales: Chronos[][] = [
-    [{minutes:5, secondes:32,millisecondes: 856},{minutes:4, secondes:10,millisecondes: 500},{minutes:3, secondes:27,millisecondes: 900}],
-    [{minutes:5, secondes:32,millisecondes: 856},{minutes:4, secondes:10,millisecondes: 500},{minutes:3, secondes:27,millisecondes: 900}]
+    /*[{minutes:5, secondes:32,millisecondes: 856},{minutes:4, secondes:10,millisecondes: 500},{minutes:3, secondes:27,millisecondes: 900}],
+    [{minutes:5, secondes:32,millisecondes: 856},{minutes:4, secondes:10,millisecondes: 500},{minutes:3, secondes:27,millisecondes: 900}]*/
   ];
 
   constructor() { }
@@ -34,6 +35,25 @@ export class ChampionshipComponent implements OnInit {
     }
     this.participantAjoute = ''
   }
+
+  addChronos(min: string, sec: string, millis: string, playerIndex: number){
+    let newChronos: Chronos = {
+      minutes: Number(min),
+      secondes: Number(sec),
+      millisecondes: Number(millis)
+    }
+    if (this.tempsSpeciales[playerIndex] == null){
+      this.tempsSpeciales[playerIndex] = []
+    }
+    this.tempsSpeciales[playerIndex].push(newChronos)
+  }
+
+  deleteChronos(playerIndex: number, specialIndex: number){
+    delete this.tempsSpeciales[playerIndex][specialIndex]
+  }
+
+
+
 
   tempsTotalParticipant(allChronos: Chronos[]){
     let tempsTotalmillisec= 0;
