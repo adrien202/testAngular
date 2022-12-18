@@ -1,16 +1,19 @@
-<div class="row bg-titre">
+<div class="bg-titre">
   <h2 class="text-center my-3">RaceChronos Championship</h2>
-  <div class="col-5 ms-2">
-    <h5 class="text-center">Paramètres du championnat</h5><hr>
-    <div>Ajouter un participant :</div> <input type="text" [(ngModel)]="participantAjoute"><button (click)="addParticipant()" class="ms-2 btn btn-primary">Ajouter</button>
-    <div>
-      <p class="mt-2">Participants:</p>
-      <p *ngFor="let pilote of pilotes">- {{pilote}}</p>
-    </div>
+  <div class="ms-2">
+    <h5>Paramètres du championnat</h5>
+      <hr>
+      <div>Ajouter un participant :</div>
+      <input type="text" [(ngModel)]="participantAjoute">
+      <button (click)="addParticipant()" class="ms-2 btn btn-primary">Ajouter</button>
+      <div>
+        <p class="mt-2">Participants:</p>
+        <p *ngFor="let pilote of pilotes">- {{pilote}}</p>
+      </div>
 
   </div>
 
-  <div class="col-5">
+
     <h5 class="text-center">Résultats</h5>
     <div><hr>
       <div *ngFor="let nom of pilotes; let i = index">
@@ -40,4 +43,3 @@
     </div>
   </div>
 
-</div>
